@@ -79,7 +79,13 @@ def partition(array:list[int], low: int, high:int):
 
 # function to perform quicksort
 @timer
-def quick_sort(array:list[int], low: int, high: int):
+def quick_sort(array: list[int], low: int, high: int) -> list[int]:
+  quick_sort_fn(array, low, high)
+  return array
+
+
+
+def quick_sort_fn(array:list[int], low: int, high: int):
 
 
 
@@ -91,10 +97,10 @@ def quick_sort(array:list[int], low: int, high: int):
     pi = partition(array, low, high)
 
     # recursive call on the left of pivot
-    quick_sort(array, low, pi - 1)
+    quick_sort_fn(array, low, pi - 1)
 
     # recursive call on the right of pivot
-    quick_sort(array, pi + 1, high)
+    quick_sort_fn(array, pi + 1, high)
 
 
 

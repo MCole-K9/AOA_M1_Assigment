@@ -17,14 +17,13 @@ while True:
   print("3. Selection Sort")
   print("4. Heap Sort")
   print("5. Insertion Sort")
-  print("6.  Merge Sort")
-  print("4. Exit")
+  print("6. Merge Sort")
+  print("7. Exit")
 
   choice = int(input("Enter your choice: "))
 
   match choice:
     case 1:
-      #  function_1()
       sort_fn.bubble_sort(list_10000)
       sort_fn.bubble_sort(list_50000)
       sort_fn.bubble_sort(list_100000)

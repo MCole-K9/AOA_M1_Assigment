@@ -24,9 +24,9 @@ while True:
 
   match choice:
     case 1:
-      sort_fn.bubble_sort(list_10000)
-      sort_fn.bubble_sort(list_50000)
-      sort_fn.bubble_sort(list_100000)
+        sort_fn.bubble_sort(list_10000)
+        sort_fn.bubble_sort(list_50000)
+        sort_fn.bubble_sort(list_100000)
     case 2:
         sort_fn.quick_sort(list_10000, 0, len(list_10000) - 1)
         sort_fn.quick_sort(list_50000, 0, len(list_50000) - 1)

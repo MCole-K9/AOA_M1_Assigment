@@ -1,3 +1,5 @@
+import json
+import os
 import time
 
 
@@ -11,10 +13,27 @@ def timer(func):
     result = func(*args, **kwargs)
     end = time.time()
     list_size = len(
-        args[0]) if len(args) > 0 and isinstance(args[0], list) else 0
+      args[0]) if len(args) > 0 and isinstance(args[0], list) else 0
     print(
-        f"Function '{func.__name__}' took {end - start:.4f} seconds to run on a list of size {list_size}."
+      f"Function '{func.__name__}' took {end - start:.4f} seconds to run on a list of size {list_size}."
     )
+
+    data = {}
+    if os.path.exists('function_data.json'):
+      with open('function_data.json', 'r') as f:
+        data = json.load(f)
+
+    if func.__name__ not in data:
+      data[func.__name__] = []
+
+    data[func.__name__].append({
+      "execution_time": end - start,
+      "list_size": list_size
+    })
+
+    with open('function_data.json', 'w') as f:
+      json.dump(data, f, indent=4)
+
     return result
 
   return wrapper

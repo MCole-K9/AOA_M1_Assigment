@@ -191,10 +191,14 @@ def insertion_sort(array):
         array[j + 1] = key
 
 
-# MergeSort 
+# merge_sort_fn 
 
 @timer
-def mergeSort(array):
+def merge_sort(array):
+    merge_sort_fn(array)
+    return array
+
+def merge_sort_fn(array):
     if len(array) > 1:
 
         #  r is the point where the array is divided into two subarrays
@@ -203,8 +207,8 @@ def mergeSort(array):
         M = array[r:]
 
         # Sort the two halves
-        mergeSort(L)
-        mergeSort(M)
+        merge_sort_fn(L)
+        merge_sort_fn(M)
 
         i = j = k = 0
 
